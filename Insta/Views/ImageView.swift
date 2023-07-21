@@ -4,19 +4,16 @@
 //
 //  Created by antuni gr on 21/07/23.
 //
-
+	
 import SwiftUI
 
 struct ImageView: View {
-    
-    var imageName: String = "cara"
 
-    
+    var imageName: String = "cara"
     var body: some View {
         
-        Image(imageName)
-            .resizable()
-        
+        Image(uiImage: UIImage(named: imageName) ?? UIImage()).resizable()
+                    
     }
 }
 

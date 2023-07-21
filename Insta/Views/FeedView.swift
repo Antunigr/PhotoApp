@@ -67,8 +67,8 @@ struct FeedView: View {
                     }
                 }
                 
-                ImageView(imageName:post.postImage)
-                    .frame(width: 380 ,height: 380)
+                ImageView(imageName: post.postImage)
+                    .frame(height: 380)
                     .shadow(color: Color("DefaultShadow"), radius: 3, x: 1, y: 2)
                 
                 HStack(spacing:30){
@@ -95,8 +95,9 @@ struct FeedView: View {
                 .padding(.top)
                 Spacer()
             }
-            .padding(.leading)
             .padding(.trailing)
+            .padding(.leading)
+            
         }
     }
 
@@ -119,7 +120,7 @@ struct FeedView: View {
                     Spacer()
                     
                     Button(action: {}){
-                        ImageView(imageName:"cara")
+                        ImageView(imageName: "moca.jpg")
                             .frame(width: 45, height: 45)
                             .clipShape(Circle())
                             .shadow(color: .black.opacity(0.1), radius: 1, x: 0, y: 1)
