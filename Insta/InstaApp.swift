@@ -9,9 +9,9 @@ import SwiftUI
 
 @main
 struct InstaApp: App {
-    var body: some Scene {
+    var body: some Scene { 
         WindowGroup {
-            FeedView()
+            FeedView(feedViewModel: FeedViewModel())
         }
     }
 }

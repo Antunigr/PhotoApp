@@ -8,9 +8,13 @@
 import SwiftUI
 
 struct ImageView: View {
+    
+    var imageName: String = "cara"
+
+    
     var body: some View {
         
-        Image(uiImage:#imageLiteral(resourceName: "cara2.jpg"))
+        Image(imageName)
             .resizable()
         
     }

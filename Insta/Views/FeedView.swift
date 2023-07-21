@@ -8,51 +8,66 @@
 import SwiftUI
 
 struct FeedView: View {
+    @ObservedObject var fedViewModel: FeedViewModel
+    
+    init(feedViewModel: FeedViewModel){
+        self.fedViewModel = feedViewModel
+    }
+    
+    
+    
     var body: some View {
         ZStack{
             VStack{
                 NavigationBarView()
                 VStack{
-                    ScrollView{
-                        CardView()
-                        CardView()
-                        CardView()
-                        CardView()
-                        CardView()
+                    if !self.fedViewModel.posts.isEmpty{
+                        ScrollView{
+                            ForEach(self.fedViewModel.posts.indices, id: \.self) {index in
+                                CardView(post: self.fedViewModel.posts[index])
+                            }
+                        }
                     }
-                    .padding(.bottom)
+                    
+                    
                 }
+                .padding(.bottom)
                 Spacer()
+                
         }
             .edgesIgnoringSafeArea(.bottom)
+            .onAppear{
+                self.fedViewModel.loadPosts()
+            }
     }
 }
     
     
 
     struct CardView: View{
+        var post: Post
+        
         var body: some View{
             VStack{
                 HStack{
-                    ImageView()
+                    ImageView(imageName: post.userImage)
                         .clipShape(RoundedRectangle(cornerRadius: 5))
                         .frame(width: 36, height: 36)
                     
                     VStack(alignment: .leading){
-                        Text("jhon_")
+                        Text(post.userName)
                             .font(.footnote).fontWeight(.bold)
                         HStack{
-                            Text("London,England")
+                            Text(post.location)
                                 .font(.footnote).fontWeight(.light)
                             Spacer()
-                            Text("2 minutes ago")
+                            Text(post.timePostedSinceNow)
                                 .font(.footnote).fontWeight(.light)
                         }
                     }
                 }
                 
-                Image(uiImage:#imageLiteral(resourceName: "cara.jpg"))
-                    .resizable()
+                ImageView(imageName:post.postImage)
                     .frame(width: 380 ,height: 380)
                     .shadow(color: Color("DefaultShadow"), radius: 3, x: 1, y: 2)
                 
@@ -61,7 +76,7 @@ struct FeedView: View {
                         HStack{
                             Image(systemName: "heart")
                                 .font(Font.headline.weight(.semibold))
-                            Text("19").font(.caption)
+                            Text("\(post.likeCount)").font(.caption)
                         }
                         .foregroundColor(.black)
                     }
@@ -72,13 +87,12 @@ struct FeedView: View {
                         HStack{
                             Image(systemName: "bubble.right")
                                 .font(Font.headline.weight(.semibold))
-                            Text("19").font(.caption)
+                            Text("\(post.commentCount)").font(.caption)
                         }
                         .foregroundColor(.black)
                     }
                 }
                 .padding(.top)
-                
                 Spacer()
             }
             .padding(.leading)
@@ -105,7 +119,7 @@ struct FeedView: View {
                     Spacer()
                     
                     Button(action: {}){
-                        ImageView()
+                        ImageView(imageName:"cara")
                             .frame(width: 45, height: 45)
                             .clipShape(Circle())
                             .shadow(color: .black.opacity(0.1), radius: 1, x: 0, y: 1)
@@ -127,6 +141,6 @@ struct FeedView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        FeedView()
+        FeedView(feedViewModel: FeedViewModel())
     }
 }
