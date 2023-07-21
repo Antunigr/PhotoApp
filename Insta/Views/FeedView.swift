@@ -7,16 +7,24 @@
 
 import SwiftUI
 
-struct ContentView: View {
+struct FeedView: View {
     var body: some View {
         ZStack{
             VStack{
                 NavigationBarView()
+                VStack{
+                    ScrollView{
+                        CardView()
+                        CardView()
+                        CardView()
+                        CardView()
+                        CardView()
+                    }
+                    .padding(.bottom)
+                }
                 Spacer()
-                CardView()
-                
-                        
         }
+            .edgesIgnoringSafeArea(.bottom)
     }
 }
     
@@ -26,8 +34,7 @@ struct ContentView: View {
         var body: some View{
             VStack{
                 HStack{
-                    Image(uiImage:#imageLiteral(resourceName: "sir-simo-zEQZuReSPHE-unsplash.jpg"))
-                        .resizable()
+                    ImageView()
                         .clipShape(RoundedRectangle(cornerRadius: 5))
                         .frame(width: 36, height: 36)
                     
@@ -44,7 +51,7 @@ struct ContentView: View {
                     }
                 }
                 
-                Image(uiImage:#imageLiteral(resourceName: "sir-simo-zEQZuReSPHE-unsplash.jpg"))
+                Image(uiImage:#imageLiteral(resourceName: "cara.jpg"))
                     .resizable()
                     .frame(width: 380 ,height: 380)
                     .shadow(color: Color("DefaultShadow"), radius: 3, x: 1, y: 2)
@@ -98,8 +105,7 @@ struct ContentView: View {
                     Spacer()
                     
                     Button(action: {}){
-                        Image(uiImage: #imageLiteral(resourceName: "howen-IuizZEHWDDg-unsplash.jpg"))
-                            .resizable()
+                        ImageView()
                             .frame(width: 45, height: 45)
                             .clipShape(Circle())
                             .shadow(color: .black.opacity(0.1), radius: 1, x: 0, y: 1)
@@ -108,8 +114,9 @@ struct ContentView: View {
                     .foregroundColor(.black)
                   
                 }
-                .padding()
-                
+                .padding(.top)
+                .padding(.leading)
+                .padding(.trailing)
                 
             }
         }
@@ -120,6 +127,6 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        FeedView()
     }
 }
