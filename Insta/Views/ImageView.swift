@@ -13,7 +13,6 @@ struct ImageView: View {
     var body: some View {
         
         Image(uiImage: UIImage(named: imageName) ?? UIImage()).resizable()
-                    
     }
 }
 
