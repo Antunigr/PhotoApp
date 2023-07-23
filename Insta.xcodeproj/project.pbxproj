@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2E08A6A72A6DDFD700EC0E07 /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 2E08A6A62A6DDFD700EC0E07 /* SDWebImageSwiftUI */; };
 		2E1D39BD2A6C39C000CF3E82 /* GetPostRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E1D39BC2A6C39C000CF3E82 /* GetPostRepository.swift */; };
 		2E7BFD102A696AF900FF784F /* InstaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E7BFD0F2A696AF900FF784F /* InstaApp.swift */; };
 		2E7BFD122A696AF900FF784F /* FeedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E7BFD112A696AF900FF784F /* FeedView.swift */; };
@@ -54,6 +55,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2E08A6A72A6DDFD700EC0E07 /* SDWebImageSwiftUI in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -82,12 +84,12 @@
 				2E7F79C02A6C9410008D43BB /* Models */,
 				2EA917302A6AEE220003120E /* ViewModels */,
 				2E7C494E2A6AD5DA000E236D /* Views */,
+				2EBBCEBF2A6DA60E00A6C716 /* Repositories */,
 				2E7C494B2A6AC10A000E236D /* Fonts */,
 				2E7C493E2A6ABE6D000E236D /* imgs */,
 				2E7BFD132A696AFC00FF784F /* Assets.xcassets */,
 				2E7BFD0F2A696AF900FF784F /* InstaApp.swift */,
 				2E7BFD152A696AFC00FF784F /* Preview Content */,
-				2E1D39BC2A6C39C000CF3E82 /* GetPostRepository.swift */,
 			);
 			path = Insta;
 			sourceTree = "<group>";
@@ -149,6 +151,14 @@
 			path = ViewModels;
 			sourceTree = "<group>";
 		};
+		2EBBCEBF2A6DA60E00A6C716 /* Repositories */ = {
+			isa = PBXGroup;
+			children = (
+				2E1D39BC2A6C39C000CF3E82 /* GetPostRepository.swift */,
+			);
+			path = Repositories;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -165,6 +175,9 @@
 			dependencies = (
 			);
 			name = Insta;
+			packageProductDependencies = (
+				2E08A6A62A6DDFD700EC0E07 /* SDWebImageSwiftUI */,
+			);
 			productName = Insta;
 			productReference = 2E7BFD0C2A696AF900FF784F /* Insta.app */;
 			productType = "com.apple.product-type.application";
@@ -193,6 +206,9 @@
 				Base,
 			);
 			mainGroup = 2E7BFD032A696AF900FF784F;
+			packageReferences = (
+				2E08A6A52A6DDFD700EC0E07 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */,
+			);
 			productRefGroup = 2E7BFD0D2A696AF900FF784F /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -435,6 +451,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		2E08A6A52A6DDFD700EC0E07 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SDWebImage/SDWebImageSwiftUI";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		2E08A6A62A6DDFD700EC0E07 /* SDWebImageSwiftUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2E08A6A52A6DDFD700EC0E07 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */;
+			productName = SDWebImageSwiftUI;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 2E7BFD042A696AF900FF784F /* Project object */;
 }

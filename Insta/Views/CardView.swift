@@ -13,7 +13,7 @@ struct CardView: View{
     var body: some View{
         VStack{
             HStack{
-                ImageView(imageName: post.userImageUrl.large)
+                ImageView(url: post.userImageUrl.large)
                     .clipShape(RoundedRectangle(cornerRadius: 5))
                     .frame(width: 36, height: 36)
                 
@@ -30,7 +30,7 @@ struct CardView: View{
                 }
             }
             
-            ImageView(imageName: post.postImageUrl.regular)
+            ImageView(url: post.postImageUrl.regular)
                 .frame(height: 380)
                 .shadow(color: Color("DefaultShadow"), radius: 3, x: 1, y: 2)
             

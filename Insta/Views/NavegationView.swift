@@ -24,7 +24,7 @@ struct NavigationView: View {
                 Spacer()
                 
                 Button(action: {}){
-                    ImageView(imageName: "moca.jpg")
+                    ImageView(url: "moca.jpg")
                         .frame(width: 45, height: 45)
                         .clipShape(Circle())
                         .shadow(color: .black.opacity(0.1), radius: 1, x: 0, y: 1)

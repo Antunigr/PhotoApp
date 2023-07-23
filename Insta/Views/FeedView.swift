@@ -19,12 +19,13 @@ struct FeedView: View {
             VStack{
                 NavigationView()
                 VStack{
+                    if !self.fedViewModel.posts.isEmpty{
                         ScrollView{
                             ForEach(self.fedViewModel.posts) {post in
                                 CardView(post: post)
                             }
                         }
-                    }
+                    }}
                 }
                 .padding(.bottom)
                 Spacer()

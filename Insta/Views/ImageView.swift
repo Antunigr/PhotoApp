@@ -6,18 +6,28 @@
 //
 	
 import SwiftUI
+import SDWebImageSwiftUI
 
 struct ImageView: View {
-
+    
+    var feedview: FeedViewModel = FeedViewModel()
+    
     var imageName: String = "cara"
+    var url: URL
+    
+    init(url: URL){
+        self.url = url
+    }
+    
     var body: some View {
         
-        Image(uiImage: UIImage(named: imageName) ?? UIImage()).resizable()
+    AnimatedImage(url: url)
+            .resizable()
     }
-}
 
 struct ImageView_Previews: PreviewProvider {
     static var previews: some View {
-        ImageView()
+        return ImageView(url: <#T##URL#>)
+        }
     }
 }
