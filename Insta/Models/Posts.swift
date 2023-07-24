@@ -31,14 +31,14 @@ extension Posts: Decodable{
         case user
         case location
         case timePostedSinceNow = "updated_at"
-        case imagesUrls = "regular"
+        case imagesUrls = "urls"
         case likeCount = "likes"
 }}
 
 struct Location: Decodable {
-    var name: String
-    var city: String
-    var country: String
+    var name: String?
+    var city: String?
+    var country: String?
 
     enum CodingKeys: String, CodingKey{
         case name
@@ -62,13 +62,13 @@ struct ImagesUrls: Decodable {
 
 struct User: Codable {
     let id: String
-    let username, name, firstName: String
+    let username, name, firstName: String?
     let lastName, twitterUsername: String?
     let portfolioURL: String?
-    let bio: String
+    let bio: String?
     let location: String?
     let profileImage: ImagesProfileUrls
-    let instagramUsername: String
+    let instagramUsername: String?
     let totalCollections, totalLikes, totalPhotos: Int
     let acceptedTos, forHire: Bool
 

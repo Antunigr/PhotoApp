@@ -54,7 +54,7 @@ class FeedViewModel: ObservableObject{
     
     func loadData() {
         let key = "Au6HUeL30WW4msBXreC64xx8fjwZDrDwdAmFkCSE374"
-        let url = "https://api.unsplash.com/photos/random/?count=30&client_id=\(key)"
+        let url = "https://api.unsplash.com/photos/random/?count=1&client_id=\(key)"
         let session = URLSession(configuration: .default)
         
         session.dataTask(with: URL(string: url)!) { (data, _, error) in

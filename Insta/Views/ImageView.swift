@@ -24,7 +24,7 @@ struct ImageView: View {
 
 struct ImageView_Previews: PreviewProvider {
     static var previews: some View {
-        return ImageView(url: imgUrl)
+        return ImageView(url: "string")
     }
 }
 }
