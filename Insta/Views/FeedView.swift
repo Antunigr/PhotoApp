@@ -19,9 +19,9 @@ struct FeedView: View {
             VStack{
                 NavigationView()
                 VStack{
-                    if !self.fedViewModel.posts.isEmpty{
+                    if !self.fedViewModel.photoArray.isEmpty{
                         ScrollView{
-                            ForEach(self.fedViewModel.posts) {post in
+                            ForEach(self.fedViewModel.photoArray) {post in
                                 CardView(post: post)
                             }
                         }
@@ -32,7 +32,7 @@ struct FeedView: View {
         }
             .edgesIgnoringSafeArea(.bottom)
             .onAppear{
-                self.fedViewModel.loadPosts()
+                self.fedViewModel.loadData()
             }
     }
 }

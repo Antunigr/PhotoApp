@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2E08A6A72A6DDFD700EC0E07 /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 2E08A6A62A6DDFD700EC0E07 /* SDWebImageSwiftUI */; };
+		2E08A6AA2A6DE84900EC0E07 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 2E08A6A92A6DE84900EC0E07 /* Alamofire */; };
 		2E1D39BD2A6C39C000CF3E82 /* GetPostRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E1D39BC2A6C39C000CF3E82 /* GetPostRepository.swift */; };
 		2E7BFD102A696AF900FF784F /* InstaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E7BFD0F2A696AF900FF784F /* InstaApp.swift */; };
 		2E7BFD122A696AF900FF784F /* FeedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E7BFD112A696AF900FF784F /* FeedView.swift */; };
@@ -56,6 +57,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2E08A6A72A6DDFD700EC0E07 /* SDWebImageSwiftUI in Frameworks */,
+				2E08A6AA2A6DE84900EC0E07 /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -177,6 +179,7 @@
 			name = Insta;
 			packageProductDependencies = (
 				2E08A6A62A6DDFD700EC0E07 /* SDWebImageSwiftUI */,
+				2E08A6A92A6DE84900EC0E07 /* Alamofire */,
 			);
 			productName = Insta;
 			productReference = 2E7BFD0C2A696AF900FF784F /* Insta.app */;
@@ -208,6 +211,7 @@
 			mainGroup = 2E7BFD032A696AF900FF784F;
 			packageReferences = (
 				2E08A6A52A6DDFD700EC0E07 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */,
+				2E08A6A82A6DE84900EC0E07 /* XCRemoteSwiftPackageReference "Alamofire" */,
 			);
 			productRefGroup = 2E7BFD0D2A696AF900FF784F /* Products */;
 			projectDirPath = "";
@@ -461,6 +465,14 @@
 				minimumVersion = 2.0.0;
 			};
 		};
+		2E08A6A82A6DE84900EC0E07 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -468,6 +480,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 2E08A6A52A6DDFD700EC0E07 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */;
 			productName = SDWebImageSwiftUI;
+		};
+		2E08A6A92A6DE84900EC0E07 /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2E08A6A82A6DE84900EC0E07 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

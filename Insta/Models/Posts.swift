@@ -9,50 +9,54 @@ import Foundation
 
 struct Posts: Identifiable {
     var id: String
-    var userImageUrl: ImagesProfileUrls
-    var userName: String
-    var location: String
+    var user: User
+    var location: Location
     var timePostedSinceNow: String
-    var postImageUrl: ImagesUrls
+    var imagesUrls: ImagesUrls
     var likeCount: Int
         
-    init(id: String, userImageUrl:ImagesProfileUrls, userName: String, location: String, timePostedSinceNow: String, postImageUrl: ImagesUrls, likeCount: Int){
+    init(id: String, user: User, location: Location, timePostedSinceNow: String, imagesUrls: ImagesUrls, likeCount: Int){
         self.id = id
-        self.userImageUrl = userImageUrl
-        self.userName = userName
+        self.user = user
         self.location = location
         self.timePostedSinceNow = timePostedSinceNow
-        self.postImageUrl = postImageUrl
+        self.imagesUrls = imagesUrls
         self.likeCount = likeCount
     }
 }
 
 extension Posts: Decodable{
     enum CodingKeys: String, CodingKey{
-        case id = "id"
-        case userImageUrl = "large"
-        case userName = "username"
-        case location = "location"
+        case id
+        case user
+        case location
         case timePostedSinceNow = "updated_at"
-        case postImageUrl = "regular"
+        case imagesUrls = "regular"
         case likeCount = "likes"
 }}
+
+struct Location: Decodable {
+    var name: String
+    var city: String
+    var country: String
+
+    enum CodingKeys: String, CodingKey{
+        case name
+        case city
+        case country
+    }
+}
 
 struct ImagesUrls: Decodable {
     
     var regular: String
+    var full : String
+    var small : String
     
     enum CodingKeys: String, CodingKey{
-        case regular = "regular"
-    }
-}
-
-struct ImagesProfileUrls: Codable {
-    
-    var large: String
-    
-    enum CodingKeys: String, CodingKey{
-        case large = "large"
+        case regular
+        case full
+        case small
     }
 }
 
@@ -87,3 +91,12 @@ struct User: Codable {
     }
 }
 
+    
+struct ImagesProfileUrls: Codable {
+    
+    var large: String
+    
+    enum CodingKeys: String, CodingKey{
+        case large
+    }
+}

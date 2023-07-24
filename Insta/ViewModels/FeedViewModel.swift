@@ -14,36 +14,62 @@ enum FeedViewState{
 }
 
 class FeedViewModel: ObservableObject{
-    @Published var posts: [Posts]
-    @Published var errorMessage: String
-    
-    var getPostsRepository: GetPostRepository = GetPostRepository()
-    
-    var viewState: FeedViewState
-    var cancellable: AnyCancellable?
-    
-    init(){
-        self.posts = []
-        self.errorMessage = ""
-        self.viewState = .loading
+//    @Published var posts: [Posts]
+//    @Published var errorMessage: String
+//
+//    var getPostsRepository: GetPostRepository = GetPostRepository()
+//
+//    var viewState: FeedViewState
+//    var cancellable: AnyCancellable?
+//
+//    init(){
+//        self.posts = []
+//        self.errorMessage = ""
+//        self.viewState = .loading
+//    }
+//
+//    func loadPosts(){
+//
+//            cancellable = getPostsRepository
+//            .loadData()
+//            .sink(receiveCompletion:{ completion in
+//                switch completion{
+//                case .failure(_):
+//                    self.viewState = .error
+//                    break
+//                case .finished: break
+//            }},
+//                receiveValue: {posts in
+//                    DispatchQueue.main.async {
+//                        self.viewState = .ready
+//                        self.posts = posts
+//            }
+//        })
+//    }
+    @Published var photoArray: [Posts] = []
+
+    init() {
+        loadData()
     }
     
-    func loadPosts(){
+    func loadData() {
+        let key = "Au6HUeL30WW4msBXreC64xx8fjwZDrDwdAmFkCSE374"
+        let url = "https://api.unsplash.com/photos/random/?count=30&client_id=\(key)"
+        let session = URLSession(configuration: .default)
         
-            cancellable = getPostsRepository
-            .execute()
-            .sink(receiveCompletion:{ completion in
-                switch completion{
-                case .failure(_):
-                    self.viewState = .error
-                    break
-                case .finished: break
-            }},
-                receiveValue: {posts in
+        session.dataTask(with: URL(string: url)!) { (data, _, error) in
+            guard let data = data else { return }
+            do {
+                let json = try JSONDecoder().decode([Posts].self, from: data)
+                for photo in json {
                     DispatchQueue.main.async {
-                        self.viewState = .ready
-                        self.posts = posts
+                        self.photoArray.append(photo)
+                    }
+                }
+            } catch {
+                print("viewModelERRodoantuni")
+                print(error)
             }
-        })
+        }.resume()
     }
 }

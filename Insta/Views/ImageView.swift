@@ -10,24 +10,21 @@ import SDWebImageSwiftUI
 
 struct ImageView: View {
     
-    var feedview: FeedViewModel = FeedViewModel()
+    var imgUrl: String
     
-    var imageName: String = "cara"
-    var url: URL
-    
-    init(url: URL){
-        self.url = url
+    init(url: String){
+        self.imgUrl = url
     }
     
     var body: some View {
         
-    AnimatedImage(url: url)
+        AnimatedImage(url: URL(string:imgUrl))
             .resizable()
     }
 
 struct ImageView_Previews: PreviewProvider {
     static var previews: some View {
-        return ImageView(url: <#T##URL#>)
-        }
+        return ImageView(url: imgUrl)
     }
+}
 }

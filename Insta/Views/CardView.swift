@@ -13,15 +13,15 @@ struct CardView: View{
     var body: some View{
         VStack{
             HStack{
-                ImageView(url: post.userImageUrl.large)
+                ImageView(url: post.imagesUrls.regular)
                     .clipShape(RoundedRectangle(cornerRadius: 5))
                     .frame(width: 36, height: 36)
                 
                 VStack(alignment: .leading){
-                    Text(post.userName)
+                    Text(post.user.username)
                         .font(.footnote).fontWeight(.bold)
                     HStack{
-                        Text(post.location)
+                        Text(post.location.city)
                             .font(.footnote).fontWeight(.light)
                         Spacer()
                         Text(post.timePostedSinceNow)
@@ -30,7 +30,7 @@ struct CardView: View{
                 }
             }
             
-            ImageView(url: post.postImageUrl.regular)
+            ImageView(url: post.imagesUrls.full)
                 .frame(height: 380)
                 .shadow(color: Color("DefaultShadow"), radius: 3, x: 1, y: 2)
             
@@ -67,12 +67,6 @@ struct CardView: View{
 
 struct CardView_Previews: PreviewProvider {
     static var previews: some View {
-        CardView(post: Posts(id: "1",
-                             userImageUrl: ImagesProfileUrls(large:"1"),
-                             userName: "mike",
-                             location: "brazil",
-                             timePostedSinceNow: "now",
-                             postImageUrl: ImagesUrls(regular:"1"),
-                             likeCount: 2))
+        CardView()
     }
 }
