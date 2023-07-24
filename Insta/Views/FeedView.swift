@@ -1,17 +1,10 @@
-//
-//  ContentView.swift
-//  Insta
-//
-//  Created by antuni gr on 20/07/23.
-//
-
 import SwiftUI
 
 struct FeedView: View {
-    @ObservedObject var fedViewModel: FeedViewModel
+    @ObservedObject var feedViewModel: FeedViewModel
     
-    init(feedViewModel: FeedViewModel){
-        self.fedViewModel = feedViewModel
+    init(initFeedViewModel: FeedViewModel){
+        self.feedViewModel = initFeedViewModel
     }
     
     var body: some View {
@@ -19,9 +12,9 @@ struct FeedView: View {
             VStack{
                 NavigationView()
                 VStack{
-                    if !self.fedViewModel.photoArray.isEmpty{
+                    if !self.feedViewModel.posts.isEmpty{
                         ScrollView{
-                            ForEach(self.fedViewModel.photoArray) {post in
+                            ForEach(self.feedViewModel.posts) {post in
                                 CardView(post: post)
                             }
                         }
@@ -32,7 +25,7 @@ struct FeedView: View {
         }
             .edgesIgnoringSafeArea(.bottom)
             .onAppear{
-                self.fedViewModel.loadData()
+                self.feedViewModel.loadData()
             }
     }
 }
@@ -40,7 +33,7 @@ struct FeedView: View {
    
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        FeedView(feedViewModel: FeedViewModel())
+        FeedView(initFeedViewModel: FeedViewModel())
     }
 }
 

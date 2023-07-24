@@ -1,10 +1,3 @@
-//
-//  ImageView.swift
-//  Insta
-//
-//  Created by antuni gr on 21/07/23.
-//
-	
 import SwiftUI
 import SDWebImageSwiftUI
 
@@ -26,5 +19,5 @@ struct ImageView_Previews: PreviewProvider {
     static var previews: some View {
         return ImageView(url: "string")
     }
-}
+}	
 }

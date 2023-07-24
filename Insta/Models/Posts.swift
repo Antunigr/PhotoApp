@@ -1,10 +1,3 @@
-//
-//  Posts.swift
-//  Insta
-//
-//  Created by antuni gr on 22/07/23.
-//
-
 import Foundation
 
 struct Posts: Identifiable {
